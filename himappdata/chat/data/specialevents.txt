@@ -1,0 +1,10 @@
+
+# 中秋节电话
+[MidAutumnFestival2023]
+	: [Telephone:morningcall/special/midautumn]
+
+[SpringFestival2024]
+	: [Telephone:morningcall/special/newyear2024]
+
+[ValentinesDay2024]
+	: [SetNextMorningCall:morningcall/special/valentines2024]

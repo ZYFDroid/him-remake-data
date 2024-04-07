@@ -1,0 +1,61 @@
+# Him Remake 世界树
+# 格式:
+# 井号开头是注释，会被载体忽略
+# 以方括号开头为单个节点，其中方括号里为节点名称
+# 节点中的内容为多个选项，多个发送消息，多个回复消息，多个语音/电话回复消息等，结尾可以加上或者不加下一个节点
+# 可以节点的内容分开写在不同的文件里，只要节点名称相同即可，在读取的时候会合并（仅限当该节点所有类型相同时。若要合并的节点的结尾包含跳转，则不能使用这种写法）
+# 特殊节点：[::Begin] 初始状态下会调用这个节点
+# 特殊节点：[::End] 当到这个节点之后回到初始状态
+# 当节点中存在多个同类内容时，会随机选择
+# 
+# [StateName]
+# 	 - OptionN->StateName 选项
+# 	 - OptionN->StateName 选项
+# 	 - [?:XXX]OptionN->StateName 选项，但只有世界状态XXX存在的时候才会显示这个选项，可以存在多个（都满足时显示。如果要满足任意显示的话可以写多个，会自动去重），用逗号分割
+# 	 - [?~:XXX]OptionN->StateName 选项，但只有世界状态XXX不存在的时候才会显示这个选项，可以存在多个（都不满足时显示。如果要不满足任意显示的话可以写多个，会自动去重），用逗号分割
+# 	 - [TimeSelect]->StateName 选项，但当前选项会导致发起一个时间选择
+#    < RequestMessage1 发送的消息
+#    > ResponseMessage1 接收的消息
+#    > {VoiceFile} ResponseMessage1 带语音的消息
+#    : [Telephone:dir/file]/[Voice:dir/file]/[Share:dir/file]/[Night]/[UnsetTime] 发起电话/发送语音/进入晚安模式/取消第二天的早安模式
+#    : [SetNextMorningCall:dir/file] 设置第二天的早安电话内容
+#    ] NextStateName （一般放在结尾，也可以放很多作为随机跳转）
+#    [ QuotedStateName 跳转一个状态。当下一个状态运行到::End或者结束时，回到当前状态。可嵌套
+#    + FlagName 存入世界状态
+#    + FlagName:1h 存入世界状态，但是一定时间后移除。例子是1小时
+#    x FlagName 移除世界状态
+#    ? FlagName GotoState 如果满足条件则跳转（如果有多个则随机跳转）
+#
+# 特殊状态节点: [::Begin] [::End]
+# 
+# 内置状态，满足特定状态会出现
+# _MorningTime 4点-10点
+# _NoonTime 10点-14点
+# _AfternoonTime 14点-17点
+# _SunsetTime 17点-19点
+# _NightTime 19点-23点
+# _SleepTime 23点-4点
+# _Monday _Tuesday _Wednesday _Thursday _Friday _Saturday _Sunday 周一 - 周日
+# _Weekday 周一到周五
+# _Weekend 周末
+# 
+# 内置的，可以禁用/启用特定日常的Flag
+# _DisableCasual 禁用日常会话
+# _DisableNight 禁用晚安对话
+# 推荐使用一段时间后移除的Flag
+# 
+# 也可以用数据包定义更多状态
+
+
+[::Begin]
+	- 通勤->[OutingEntry]
+	- 就餐->[DinnerEntry]
+	- 工作->[WorkingEntry]
+	- 学习->[StudyEntry]
+	- 读诗->[PoemEntry]
+	- 读故事->[StoryEntry]
+	- 闲谈->[ChatEntry]
+	- [?~:_MorningTime]晚安->[NightEntry]
+
+
+[::End]

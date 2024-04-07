@@ -1,0 +1,136 @@
+[
+    {
+		"id":"liuliuchan",
+        "cname":"六六酱",
+        "avator":"contributor_liuliuchan.png",
+        "type":"文案",
+        "sign":"一个很懒、拖延症爆棚，但是啥都会点啥都想学的梦女。",
+        "links":[
+			{
+				"displayName":"Bilibili",
+				"url":"https://space.bilibili.com/12352899"
+			},
+			{
+				"displayName":"小红书",
+				"url":"https://www.xiaohongshu.com/user/profile/58dd275882ec394e4902aef8"
+			}
+			
+        ]
+    },
+    {
+		"id":"luojianghuai",
+        "cname":"骆江淮",
+        "avator":"contributor_luojianghuai.png",
+        "type":"配音",
+        "sign":"养成型CV，懒散狐狐一只(*/ω＼*)，日常活跃于克拉克拉，不定期直播。",
+        "links":[
+			{
+				"displayName":"猫耳FM",
+				"url":"https://www.missevan.com/18460357/"
+			},
+			{
+				"displayName":"克拉克拉",
+				"url":"https://www.hongdoufm.com/PcLive/index/detail?id=1860862759571292276"
+			},
+			{
+				"displayName":"Bilibili",
+				"url":"https://space.bilibili.com/312703054"
+			}
+			
+        ]
+    },
+    {
+		"id":"cciaxia",
+        "cname":"Cccaxia 夏",
+        "avator":"contributor_cccaxia.png",
+        "type":"文案",
+        "sign":"一位三次很忙碌的美工兼职文案",
+        "links":[
+			{
+				"displayName":"Bilibili",
+				"url":"https://space.bilibili.com/402963061"
+			}
+			
+        ]
+    },
+    {
+		"id":"linqing",
+        "cname":"林清",
+        "avator":"avator_linqing.png",
+        "type":"文案",
+        "sign":"暂无简介",
+        "links":[]
+    },
+    {
+		"id":"zyfdroid",
+        "cname":"ZYFDroid",
+        "avator":"contributor_zyfdroid.png",
+        "type":"程序 & 策划",
+        "sign":"致敬每一个理想主义者 (比如官方)",
+        "links":[
+			{
+				"displayName":"项目主页",
+				"url":"https://gitee.com/ZYFDroid/him-remake"
+			},
+			{
+				"displayName":"Bilibili",
+				"url":"https://space.bilibili.com/10927769"
+			},
+			{
+				"displayName":"小红书",
+				"url":"https://www.xiaohongshu.com/user/profile/6470cc1d0000000012036daa"
+			},
+			{
+				"displayName":"Github主页",
+				"url":"https://github.com/ZYFDroid/"
+			},
+			{
+				"displayName":"Gitee主页",
+				"url":"https://gitee.com/ZYFDroid/"
+			}
+        ]
+    },
+    {
+		"id":"soundeffectlab",
+        "cname":"効果音ラボ",
+        "avator":"contributor_website.png",
+        "type":"効果音素材网站",
+        "sign":"商用無料、報告不用の効果音素材をダウンロード",
+        "links":[
+			{
+				"displayName":"主页地址: soundeffect-lab.info",
+				"url":"https://soundeffect-lab.info/"
+			}
+			
+        ]
+    },
+    {
+		"id":"rvc-project",
+        "cname":"RVC-Project",
+        "avator":"avator_rvc.png",
+        "type":"声线转换技术",
+        "sign":"Retrieval-based-Voice-Conversion：一个基于VITS的简单易用的变声框架",
+        "links":[
+			{
+				"displayName":"项目主页（Github）",
+				"url":"https://github.com/RVC-Project/Retrieval-based-Voice-Conversion-WebUI"
+			}
+			
+        ]
+    },
+    {
+		"id":"gpt-sovits",
+        "cname":"GPT-SoVITS",
+        "avator":"avator_gpt_sovits.png",
+        "type":"配音",
+        "sign":"A Powerful Few-shot Voice Conversion and Text-to-Speech.",
+        "links":[
+			{
+				"displayName":"项目主页（Github）",
+				"url":"https://github.com/RVC-Boss/GPT-SoVITS/"
+			}
+			
+        ]
+    }
+
+]

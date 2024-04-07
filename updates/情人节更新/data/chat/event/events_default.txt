@@ -1,0 +1,20 @@
+# 类型,说明,日期(L=农历，S=公历, W=周X（填入0123456)，D=每天，F=完整指定日期（8位年月日））,时间,触发目标
+
+# 日常类型
+Chat,周一,0W,1000,[::Weekday1]
+Chat,周三,2W,1000,[::Weekday1]
+Chat,周五,4W,1000,[::Weekday1]
+Chat,周二小知识时间,1W,1600,[::Weekday2]
+Chat,周四小知识时间,3W,1600,[::Weekday2]
+Chat,晚安对话,0D,2300,[::Night]
+
+# 节日特别篇
+# Chat,中秋节,0815L,2000,[MidAutumnFestival]
+Chat,2023中秋节,20230929F,2000,[MidAutumnFestival2023]
+Chat,2024春节,20240209F,1930,[SpringFestival2024]
+Chat,2024情人节,20240213F,2350,[ValentinesDay2024]
+
+# 类型也可以是Flag（即定时Flag，触发目标是Flag名称:时常），例如
+# Flag,情人节特别活动,0214S,0401,ValentinesDay:20h
+# 在2月14日凌晨4点到2月14日结束，一整天都会有 ValentinesDay 状态。此时可以根据这个状态解锁一些特别活动
+# 常用于添加新话题（主动对话）

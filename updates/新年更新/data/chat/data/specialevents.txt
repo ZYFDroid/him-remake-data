@@ -1,0 +1,7 @@
+
+# 中秋节电话
+[MidAutumnFestival2023]
+	: [Telephone:morningcall/special/midautumn]
+
+[SpringFestival2024]
+	: [Telephone:morningcall/special/newyear2024]

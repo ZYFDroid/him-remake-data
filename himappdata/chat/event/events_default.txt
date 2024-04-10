@@ -12,7 +12,7 @@ Chat,晚安对话,0D,2300,[::Night]
 # Chat,中秋节,0815L,2000,[MidAutumnFestival]
 Chat,2023中秋节,20230929F,2000,[MidAutumnFestival2023]
 Chat,2024春节,20240209F,1930,[SpringFestival2024]
-Chat,2024情人节,20240213F,2350,[ValentinesDay2024]
+
 
 # 类型也可以是Flag（即定时Flag，触发目标是Flag名称:时常），例如
 # Flag,情人节特别活动,0214S,0401,ValentinesDay:20h

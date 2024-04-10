@@ -7,4 +7,4 @@
 	: [Telephone:morningcall/special/newyear2024]
 
 [ValentinesDay2024]
-	: [SetNextMorningCall:morningcall/special/valentines2024]
+	: [Telephone:morningcall/special/valentines2024]

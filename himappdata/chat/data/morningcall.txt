@@ -1,0 +1,24 @@
+
+[::MorningCall]
+# 2024年情人节
+	? _Date20240214 [ValentinesDay2024]
+# 否则进入普通的早安电话节点
+	] [ProcessNormalMorningCall]
+
+
+[ProcessNormalMorningCall]
+	? _Weekday [MorningCallWeekDay]
+	? _Weekday [MorningCallWeekDayNeural]
+	? _Weekend [MorningCallWeekEnd]
+	] [::End]
+
+
+# 自定义早安电话事件
+[MorningCallWeekDay]
+	: [Telephone:morningcall/weekday]
+
+[MorningCallWeekEnd]
+	: [Telephone:morningcall/weekend]
+
+[MorningCallWeekDayNeural]
+	: [Telephone:morningcall/neural]

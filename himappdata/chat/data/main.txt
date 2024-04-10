@@ -24,9 +24,11 @@
 #    + FlagName 存入世界状态
 #    + FlagName:1h 存入世界状态，但是一定时间后移除。例子是1小时
 #    x FlagName 移除世界状态
-#    ? FlagName GotoState 如果满足条件则跳转（如果有多个则随机跳转）
+#    ? FlagName GotoState 如果满足条件则跳转（如果有多个则随机跳转，均不满足时，若有放在结尾的跳转，则运行结尾的跳转。）
+#      注意: 如果一个节点塞多个条件跳转，结尾必须放一个普通的跳转，如果不需要就跳转到 [::End]。否则系统可能会出现混乱（懒得修了）
 #
 # 特殊状态节点: [::Begin] [::End]
+# 特殊状态节点：[::MorningCall]
 # 
 # 内置状态，满足特定状态会出现
 # _MorningTime 4点-10点
@@ -38,6 +40,10 @@
 # _Monday _Tuesday _Wednesday _Thursday _Friday _Saturday _Sunday 周一 - 周日
 # _Weekday 周一到周五
 # _Weekend 周末
+# _Date20240214 运行时当前的日期
+# _Date0214 运行时当前的日期
+# _Lunar0214 运行时当前的日期（农历）
+# _Birthday 生日时启用的Flag
 # 
 # 内置的，可以禁用/启用特定日常的Flag
 # _DisableCasual 禁用日常会话

@@ -45,9 +45,9 @@ namespace AssetPacker
 
         private static void copyNoOverride(String src,String dest)
         {
-            if (!File.Exists(dest))
+            if (File.Exists(dest))
             {
-                File.Copy(src, dest);
+                File.Copy(src, dest，true);
             }
         }
 

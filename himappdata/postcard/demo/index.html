@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        section{
+            width: 200px;
+            height: 200px;
+            /* 设置景深 */
+            perspective: 1000px;
+            -webkit-perspective: 1000px;
+            margin: 50px auto;
+        }
+
+        @keyframes threeDRotate {
+            0%{
+
+                transform:rotateX(-30deg) rotateY(0deg) ;
+            }
+            50%{
+                transform:rotateX(-30deg) rotateY(180deg) ;
+            
+            }
+
+            100%{
+
+                transform:rotateX(-30deg) rotateY(360deg) ;
+            }
+        }
+
+        body{
+            margin: 0px;
+            padding: 0px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 100vw;
+            overflow: hidden;
+            background-size: 100% 100%;
+            background-color: transparent;
+            
+        }
+
+        #box{
+            width: 200px;
+            height: 200px;
+            /* 既是p标签的舞台，自己也是section标签的演员 要设置transform-style*/
+            transform-style: preserve-3d;
+            position: relative;
+            animation-name: threeDRotate;
+            animation-duration: 10s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+        #box p{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background-size: cover;
+            background-repeat: no-repeat;
+            box-sizing: border-box;
+            border: solid black 1px;
+            
+        }
+        #front{
+            /* 让盒子向前移动100px，更靠近观察者100px */
+            transform: translateZ(100px);
+            background-color:chocolate;
+            background-image: url(side.png);
+        }
+        #top{
+            /* 让盒子绕着X轴３D旋转90度，此时盒子垂直于电脑屏幕，然后再让它沿着此时的Z轴正方向（向上）移动100px*/
+            transform: rotateX(90deg) translateZ(100px);
+            background-color:rgb(22, 243, 232);
+            
+            background-image: url(top.png);
+        }
+        #back{
+            /* 让盒子向后移动100px，远离观察者100px  */
+            transform: translateZ(-100px);
+            background-color:rgb(13, 105, 241);
+            background-image: url(side.png);
+        }
+        #bottom{
+            /* 让盒子绕着X轴３D旋转-90度，此时盒子垂直于电脑屏幕，然后再让它沿着此时的Z轴正方向（向下）移动100px  */
+            transform: rotateX(-90deg) translateZ(100px);
+            background-color:rgb(124, 238, 17);
+            background-image: url(bottom.png);
+        }
+        #left{
+            /* 让盒子绕着Y轴３D旋转-90度，此时盒子垂直于电脑屏幕，然后再让它沿着此时的Z轴正方向（向左）移动100px*/
+            transform: rotateY(-90deg) translateZ(100px);
+            background-color:rgb(233, 10, 177);
+            background-image: url(side.png);
+        }
+        #right{
+            /* 让盒子绕着Y轴３D旋转90度，此时盒子垂直于电脑屏幕，然后再让它沿着此时的Z轴正方向（向右）移动100px*/
+            transform: rotateY(90deg) translateZ(100px);
+            background-color:rgb(238, 17, 17);
+            background-image: url(side.png);
+        }
+    </style>
+</head>
+<body>
+    <section>
+        <div id="box" >
+            <p id="front"></p>
+            <p id="top"></p>
+            <p id="back"></p>
+            <p id="bottom"></p>
+            <p id="left"></p>
+            <p id="right"></p>
+        </div>
+    </section>
+    
+</body>
+</html>

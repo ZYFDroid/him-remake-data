@@ -17,8 +17,12 @@
 #    < RequestMessage1 发送的消息
 #    > ResponseMessage1 接收的消息
 #    > {VoiceFile} ResponseMessage1 带语音的消息
+#    : ![Telephone:dir/file] 发起电话，但是会进入特殊回忆列表
 #    : [Telephone:dir/file]/[Voice:dir/file]/[Share:dir/file]/[Night]/[UnsetTime] 发起电话/发送语音/进入晚安模式/取消第二天的早安模式
-#    : [SetNextMorningCall:dir/file] 设置第二天的早安电话内容
+#    : [SetNextMorningCall:dir/file] 设置第二天的早安电话内容（不推荐。这个功能在国产手机上无法使用）
+#    : [PostCard:dirname?param1=value1&param2=value2] 发送明信片，带有指定的参数（不会显示在消息界面）
+#    : ![PostCard:dirname] 发送明信片,会进入特殊回忆列表（同样可以带有参数）
+#      带有参数时，可以在不引起歧义的情况下不进行url编码。如果有title和subtitle字段，将会覆盖明信片的默认字段
 #    ] NextStateName （一般放在结尾，也可以放很多作为随机跳转）
 #    [ QuotedStateName 跳转一个状态。当下一个状态运行到::End或者结束时，回到当前状态。可嵌套
 #    + FlagName 存入世界状态
@@ -42,7 +46,8 @@
 # _Weekend 周末
 # _Date20240214 运行时当前的日期
 # _Date0214 运行时当前的日期
-# _Lunar0214 运行时当前的日期（农历）
+# _Lunar0214L 运行时当前的日期（农历）
+# _Lunar0214ML 运行时当前的日期（农历,M表示闰月）
 # _Birthday 生日时启用的Flag
 # 
 # 内置的，可以禁用/启用特定日常的Flag

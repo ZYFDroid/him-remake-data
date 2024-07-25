@@ -1,0 +1,20 @@
+[BirthdayEntry]
+    ] [Birthday_p01]
+    ] [Birthday_p02]
+
+
+[Birthday_p01]
+	
+	] [Birthday_t01]
+
+[Birthday_t01]
+    : ![Telephone:]
+	] [::End]
+
+[Birthday_p02]
+	
+	] [Birthday_t02]
+
+[Birthday_t02]
+    : ![Telephone:]
+	] [::End]

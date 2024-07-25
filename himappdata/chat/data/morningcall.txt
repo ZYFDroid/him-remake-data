@@ -2,6 +2,7 @@
 [::MorningCall]
 # 2024年情人节
 	? _Date20240214 [ValentinesDay2024]
+	? _Birthday [BirthdayEntry]
 # 否则进入普通的早安电话节点
 	] [ProcessNormalMorningCall]
 

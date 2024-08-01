@@ -139,18 +139,19 @@
         ]
     },
     {
-		"id":"soundeffectlab",
-        "cname":"効果音ラボ",
-        "avator":"contributor_website.png",
-        "type":"効果音素材网站",
-        "sign":"商用無料、報告不用の効果音素材をダウンロード",
+		"id":"gpt-sovits",
+        "cname":"GPT-SoVITS",
+        "avator":"avator_gpt_sovits.png",
+        "type":"语音合成技术",
+        "sign":"一个效果强劲，但合成全靠抽卡，且不设保底的TTS语音合成技术。\r\nA Powerful Few-shot Voice Conversion and Text-to-Speech.",
         "links":[
 			{
-				"displayName":"主页地址: soundeffect-lab.info",
-				"url":"https://soundeffect-lab.info/"
+				"displayName":"项目主页（Github）",
+				"url":"https://github.com/RVC-Boss/GPT-SoVITS/"
 			}
 			
         ]
+		
     },
     {
 		"id":"rvc-project",
@@ -167,15 +168,15 @@
         ]
     },
     {
-		"id":"gpt-sovits",
-        "cname":"GPT-SoVITS",
-        "avator":"avator_gpt_sovits.png",
-        "type":"TTS语音合成技术",
-        "sign":"一个效果强劲，但合成全靠抽卡，且不设保底的TTS语音合成技术。\r\nA Powerful Few-shot Voice Conversion and Text-to-Speech.",
+		"id":"soundeffectlab",
+        "cname":"効果音ラボ",
+        "avator":"contributor_website.png",
+        "type":"効果音素材网站",
+        "sign":"商用無料、報告不用の効果音素材をダウンロード",
         "links":[
 			{
-				"displayName":"项目主页（Github）",
-				"url":"https://github.com/RVC-Boss/GPT-SoVITS/"
+				"displayName":"主页地址: soundeffect-lab.info",
+				"url":"https://soundeffect-lab.info/"
 			}
 			
         ]

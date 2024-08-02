@@ -54,7 +54,7 @@ void copyNoOverride(String src, String dest)
     if (File.Exists(dest)){
         return;
     }
-    Console.WriteLine(toRelativeDirStr(src)+" => "+toRelativeDirStr(dest));
+    Console.WriteLine(toRelativeDirStr(src)+" => "+Path.GetFileName(dest));
     File.Copy(src, dest, true);
 }
 
@@ -102,8 +102,13 @@ File.WriteAllLines(Path.Combine(outputDir, manifest), fileLists.ToArray());
 
 tobeDeleted.ForEach(f =>{
     var path = Path.Combine(outputDir, datadir,f);
-    Console.WriteLine("Deleted: "+toRelativeDirStr(path));
+    Console.WriteLine("Deleted: "+Path.GetFileName(path));
     File.Delete(path);
 });
 
 Console.WriteLine("Done");
+if (Path.GetDirectoryName(Environment.ProcessPath) == Environment.CurrentDirectory)
+{
+    Console.WriteLine("按任意键继续");
+    Console.ReadLine();
+}

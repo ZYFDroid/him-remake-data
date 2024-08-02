@@ -6,7 +6,11 @@
 
 本体数据包：
 
-运行 `AssetPacker.exe` ，将生成的assets文件夹中的 `files.txt` 和 `data` 文件夹放入原项目的assets中编译
+创建一个 `assetpath.txt`，内容为原项目的assets文件夹所在路径，例如 `Q:\Projects\Android\HimRemake\app\src\main\assets`
+
+使用 RoslynPad 或者 dotnet-script 运行 AssetPacker.csx，更新项目的资源文件。
+
+如果经常使用，可以使用 dotnet-script publish 将AssetPacker.csx打包为可执行程序
 
 更新：
 

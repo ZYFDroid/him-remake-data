@@ -7,7 +7,25 @@ using System.Text;
 using System.Threading.Tasks;
 
 string inputDir = "himappdata";
-string outputDir = "assets";
+string outputDir = "";
+if(File.Exists("assetpath.txt")){
+	outputDir = File.ReadAllText("assetpath.txt").Trim();
+}
+if(string.IsNullOrWhiteSpace(outputDir)){
+	Console.WriteLine("Asset packing failed. target path is not specified. ");
+	Console.WriteLine("Please create a 'assetpath.txt' file in the script directory.");
+	Console.WriteLine("And write the project assets directory in the 'assetpath.txt' file");
+	Console.WriteLine(@"e.g. Q:\Projects\Android\HimRemake\app\src\main\assets");
+	Environment.Exit(-1);
+	return;
+}
+
+if(!Directory.Exists(outputDir)){
+	Console.WriteLine("Asset packing failed. target path does not exists. The path may be invalid. Check your 'assetpath.txt'");
+	Environment.Exit(-1);
+    return;
+}
+
 string manifest = "files.txt";
 string datadir = "data";
 

@@ -8,7 +8,7 @@
 	] [Birthday_t01]
 
 [Birthday_t01]
-    : ![Telephone:]
+    : ![Telephone:1]
 	] [::End]
 
 [Birthday_p02]

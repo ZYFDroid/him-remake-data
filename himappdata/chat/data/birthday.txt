@@ -4,17 +4,17 @@
 
 
 [Birthday_p01]
-	
+	: ![PostCard:birthday?msgtype=1]
 	] [Birthday_t01]
 
 [Birthday_t01]
-    : ![Telephone:1]
+    : ![Telephone:morningcall/birthday/birthday1]
 	] [::End]
 
 [Birthday_p02]
-	
+	: ![PostCard:birthday?msgtype=2]
 	] [Birthday_t02]
 
 [Birthday_t02]
-    : ![Telephone:]
+    : ![Telephone:morningcall/birthday/birthday2]
 	] [::End]

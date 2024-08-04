@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>生日明信片</title>
+    <link rel="stylesheet" href="../_common/style/postcard.css">
+    <link rel="stylesheet" href="../_common/style/common.css">
+    <link rel="stylesheet" href="../_common/fonts/lxgw/style.css">
+    <script src="../_common/js/zquery.js"></script>
+
+    <style>
+        .centercontainer {
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            height: 100%;
+        }
+
+        #postcardContainer {
+            width: 800px;
+            height: 1200px;
+            flex-direction: column;
+        }
+
+        .postcardinner {
+            width: 800px;
+            height: 800px;
+
+            position: relative;
+            filter: drop-shadow(3px 3px 0px #797979);
+            perspective: 1000px;
+            -webkit-perspective: 2000px;
+        }
+
+        .hintmsg {
+            color: rgba(212, 212, 212, 0.712);
+            font-size: 28px;
+        }
+
+        .postcardsize {
+
+            width: 700px;
+            height: 450px;
+        }
+
+        .postcardbody {
+            transition-duration: 400ms;
+            transform-style: preserve-3d;
+        }
+
+        .postcardbody>div {
+            border: solid darkgray 1px;
+            position: absolute;
+        }
+
+        .showfront {
+            transform: rotateZ(-5deg) scale(0.9);
+
+        }
+
+        .showback {
+            transform: rotateY(-180deg) rotateZ(0deg) scale(1.1);
+        }
+
+        .front {
+            background-color: white;
+            background-image: url(../_common/image/valve_missing_texture.png);
+            
+            background-size:100px 100px;
+            transform: translateZ(1px);
+        }
+
+        .rear {
+            background-color: white;
+            background-image: url(../_common/image/bg_postcard_rear.png);
+            
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            transform: translateZ(-1px) rotateY(-180deg);
+        }
+
+        /* .msg {
+            font-family: 'LXGW WenKai Lite';
+            font-size: 12px;
+            position: absolute;
+            left: 175px;
+            padding-left: 10px;
+            top: 56px;
+            width: 152px;
+            height: 150px;
+            text-align: justify;
+            border-left: dashed darkgray 1px;
+        } */
+
+        .msg {
+            font-family: 'LXGW WenKai Lite';
+            font-size: 28px;
+            position: absolute;
+            left: 36px;
+            top: 160px;
+            width: 620px;
+            line-height: 180%;
+            height: 200px;
+            text-align: justify;
+            flex-direction: column;
+        }
+
+        .postcardrearimg{
+            position: absolute;
+            left: 36px;
+            top: 110px;
+            width: 300px;
+            height: 300px;
+        }
+
+        .poststamp{
+            position: absolute;
+            left: 550px;
+            top: 16px;
+            width: 128px;
+            height: 128px;
+        }
+        .postmarker{
+            position: absolute;
+            left: 520px;
+            top: 70px;
+            width: 96px;
+            height: 96px;
+            transform: rotate(15deg);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container centercontainer">
+        <div id="postcardContainer" class="centercontainer">
+            <div class="postcardinner centercontainer">
+                <div class="postcardbody postcardsize showfront">
+                    <div class="front postcardsize"></div>
+                    <div class="rear postcardsize">
+                        <!-- <img class="postcardrearimg" src="../_common/image/valve_missing_texture.png" alt=""> -->
+                        <img class="poststamp" src="../_common/image/poststamp_default.png" alt="">
+                        <img class="postmarker" src="../_common/image/stamp_masked.png" alt="">
+                        <div  class="msg centercontainer">
+                            
+                            <div style="width: 100%;text-align: left;">亲爱的：</div>
+                            <div id="msg" style="flex-grow: 1;">
+
+                            </div>
+                            <div style="width: 100%;text-align: right;">—— Yours.</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="hintmsg">&lt;点击查看正面&gt;</div>
+        </div>
+    </div>
+
+    <script>
+        $(function () {
+            $("#postcardContainer").fitParent();
+            if ($.query.msgtype) {
+                if ($.query.msgtype == "1") {
+                    $("#msg").text("　　愿honey在新的一岁里，每天都能够收获新的惊喜！");
+                }
+                if ($.query.msgtype == "2") {
+                    $("#msg").text("　　最近听到一个新奇的词汇：运气守恒定律。指个人的每日运气是恒定的，有好运发生，就也会有不太美好的事出现，不过今天不一样，这条规矩对寿星无效。");
+                }
+
+
+            }
+        });
+        var isFront = true;
+        $(".postcardbody").click(function () {
+            if (isFront) {
+                $(".postcardbody").getDoms()[0].classList.add("showback");
+                $(".postcardbody").getDoms()[0].classList.remove("showfront");
+                $(".hintmsg").text("<点击回到背面>");
+            }
+            else {
+                $(".postcardbody").getDoms()[0].classList.remove("showback");
+                $(".postcardbody").getDoms()[0].classList.add("showfront");
+                $(".hintmsg").text("<点击查看正面>");
+            }
+            isFront = !isFront;
+        });
+    </script>
+</body>
+
+</html>

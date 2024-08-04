@@ -45,6 +45,30 @@ function ZQueryDOMCollection(selector){
     this.img = function (src) {
         this.getDoms().forEach(d => d.src = src);
     }
+
+    this.fitParent = function(){
+        this.getDoms().forEach(d => {
+            var parent = d.parentElement;
+            var thisWidth = d.clientWidth;
+            var thisHeight = d.clientHeight;
+            var parentWidth = parent.clientWidth;
+            var parentHeight = parent.clientHeight;
+
+            var thisRatio = thisHeight / thisWidth;
+            var parentRatio = parentHeight / parentWidth;
+
+            var scaleFactor = 1.0;
+            if(parentRatio > thisRatio){
+                scaleFactor = parentWidth / thisWidth;
+
+            }
+            else{
+                scaleFactor = parentHeight / thisHeight;
+            }
+            d.style.transform = "scale("+scaleFactor*0.995+")"
+
+        });
+    }
 }
 
 var $ = function(o){
@@ -83,6 +107,29 @@ function objectToUrlParam(param){
     }
     return searchstr;
 }
+
+Object.defineProperty($, "query", {
+  get: function () {
+    const queryParams = {};
+	const queryString = window.location.search.substr(1);
+  
+	// 如果没有查询参数，返回空对象
+	if (!queryString) {
+		return queryParams;
+	}
+
+	const paramPairs = queryString.split('&');
+  
+	paramPairs.forEach(pair => {
+		const pairArr = pair.split('=');
+		const key = pairArr[0];
+		const value = pairArr[1] ? decodeURIComponent(pairArr[1]) : true;
+		queryParams[key] = value;
+	});
+  
+	return queryParams;
+  },
+});
 
 
 $.post = function(url,param){
@@ -194,6 +241,7 @@ $.ajax = function(url,param){
     return callback;
 }
 
+
 $.cloneObject = function(obj){
     return JSON.parse(JSON.stringify(obj));
 }
@@ -205,12 +253,12 @@ $.formatDate = function(date){
     var datestr = "";
 
     datestr+=date.getFullYear();
-    datestr+="/";
+    datestr+="-";
     if(date.getMonth() < 9){
         datestr += "0";
     }
     datestr+=""+(date.getMonth()+1);
-    datestr+="/";
+    datestr+="-";
     if(date.getDate() < 10){
         datestr += "0";
     }
@@ -229,47 +277,5 @@ $.formatDate = function(date){
     }
     datestr+=""+(date.getMinutes());
 
-    return datestr;
-}
-
-$.formatDate2 = function(date){
-    if(typeof(date) == "string"){
-        date = new Date(date);
-    }
-    var datestr = "";
-
-    datestr+=date.getFullYear();
-    datestr+="/";
-    if(date.getMonth() < 9){
-        datestr += "0";
-    }
-    datestr+=""+(date.getMonth()+1);
-    datestr+="/";
-    if(date.getDate() < 10){
-        datestr += "0";
-    }
-    datestr+=""+(date.getDate());
-    
-    datestr+=" ";
-    if(date.getHours() < 13){
-        datestr += "上午";
-    }
-    else{
-        datestr += "下午";
-    }
-   
-    return datestr;
-}
-
-$.formatDate3 = function(date){
-    if(typeof(date) == "string"){
-        date = new Date(date);
-    }
-    var datestr = "";
-
-    datestr+=date.getFullYear();
-    datestr+="年";
-    datestr+=""+(date.getMonth()+1)+"月";
-   
     return datestr;
 }

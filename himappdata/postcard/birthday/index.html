@@ -21,6 +21,7 @@
         .container {
             width: 100%;
             height: 100%;
+            user-select: none;
         }
 
         #postcardContainer {
@@ -181,7 +182,7 @@
             }
         });
         var isFront = true;
-        $(".postcardbody").click(function () {
+        $("#postcardContainer").click(function () {
             if (isFront) {
                 $(".postcardbody").getDoms()[0].classList.add("showback");
                 $(".postcardbody").getDoms()[0].classList.remove("showfront");

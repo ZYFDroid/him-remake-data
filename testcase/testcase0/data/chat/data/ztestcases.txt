@@ -1,0 +1,44 @@
+
+[::Begin]
+	- 测试用例->[PreTestCases]
+
+[Test_OK]
+	> OK
+	] [::End]
+
+[PreTestCases]
+	< /test
+	] [TestCases]
+
+[TestCases]
+	> 【系统信息】\n欢迎来到世界后台，请选择要测试的功能。
+	] [TestItems]
+
+[TestItems]
+	- 测试特殊回忆电话->[PreTestSpecialTelephone]
+	- 测试明信片->[PreTestPostcard]
+	- 测试特殊回忆明信片->[PreTestSpecialPostcard]
+
+[PreTestSpecialTelephone]
+	< /测试特殊回忆电话
+	] [TestSpecialTelephone]
+
+[PreTestPostcard]
+	< /测试明信片
+	] [TestPostcard]
+
+[PreTestSpecialPostcard]
+	< /测试特殊回忆明信片
+	] [TestSpecialPostcard]
+
+[TestSpecialTelephone]
+	: ![Telephone:morningcall/neural]
+	] [Test_OK]
+
+[TestPostcard]
+	: [PostCard:demo?title=测试用例1&subtitle=这是测试明信片]
+	] [Test_OK]
+
+[TestSpecialPostcard]
+	: ![PostCard:birthday?msgtype=1&title=测试生日明信片]
+	] [Test_OK]

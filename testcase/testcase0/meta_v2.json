@@ -1,0 +1,8 @@
+{
+	"id":"testcase0",
+	"name":"测试用例0",
+	"version":24073101,
+	"description":"测试一些常见功能。",
+	"minAppVersion":1030000,
+	"minDataVersion":24012001
+}

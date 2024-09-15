@@ -8,3 +8,6 @@
 
 [ValentinesDay2024]
 	: [Telephone:morningcall/special/valentines2024]
+	
+[MidAutumnFestival2024]
+	: [Telephone:morningcall/special/midautumn2024]

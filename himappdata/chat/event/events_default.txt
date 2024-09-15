@@ -9,9 +9,9 @@ Chat,周四小知识时间,3W,1600,[::Weekday2]
 Chat,晚安对话,0D,2300,[::Night]
 
 # 节日特别篇
-# Chat,中秋节,0815L,2000,[MidAutumnFestival]
 Chat,2023中秋节,20230929F,2000,[MidAutumnFestival2023]
 Chat,2024春节,20240209F,1930,[SpringFestival2024]
+Chat,2024中秋节,20240917F,2000,[MidAutumnFestival2024]
 
 
 # 类型也可以是Flag（即定时Flag，触发目标是Flag名称:时常），例如

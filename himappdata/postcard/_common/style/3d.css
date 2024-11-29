@@ -1,0 +1,30 @@
+.h3d-object {
+    transform-style: preserve-3d;
+    box-sizing: border-box;
+    display: block;
+    /* border: solid magenta 0.5px; */
+    position: absolute;
+    pointer-events: none;
+}
+
+.h3d-container{
+    perspective: 1000px;
+    -webkit-perspective: 2000px;
+    box-sizing: border-box;
+    display: block;
+    position: relative;
+    pointer-events: none;
+}
+
+.h3d-sprite{
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+}
+
+.h3d-texture{
+    background-repeat: repeat;
+}
+
+.h3d-celshading{
+    border: solid black 1px;
+}

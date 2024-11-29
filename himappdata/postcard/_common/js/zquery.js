@@ -56,11 +56,9 @@ function ZQueryDOMCollection(selector){
 
             var thisRatio = thisHeight / thisWidth;
             var parentRatio = parentHeight / parentWidth;
-
             var scaleFactor = 1.0;
             if(parentRatio > thisRatio){
                 scaleFactor = parentWidth / thisWidth;
-
             }
             else{
                 scaleFactor = parentHeight / thisHeight;

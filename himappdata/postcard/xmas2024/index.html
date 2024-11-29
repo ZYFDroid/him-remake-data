@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="zh">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2024圣诞节</title>
+    <link rel="stylesheet" href="../_common/style/common.css">
+    <link rel="stylesheet" href="../_common/fonts/syst/style.css">
+    <link rel="stylesheet" href="../_common/style/3d.css">
+    <script src="../_common/js/zquery.js"></script>
+    <script src="../_common/js/vue.js"></script>
+    <script src="../_common/js/vue3d.js"></script>
+
+    <style>
+        .debugbackground{
+            background: linear-gradient(180deg,#656565 0%,#E2E2E2 100%); 
+        }
+
+        @keyframes debugRotate {
+            0%{
+                transform: rotateY(0deg);
+            }
+            50%{
+                transform: rotateY(180deg);
+            }
+            100%{
+                transform: rotateY(360deg);
+            }
+        }
+
+        #stageRoot{
+            animation-name: debugRotate;
+            animation-duration: 20s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+            transform: rotateY(-25deg);
+        }
+
+        .treeleaves1{
+            -webkit-filter: brightness(0.9) contrast(1.2) saturate(0.5);
+            filter: brightness(0.9) contrast(1.2) saturate(0.7);
+        }
+        .treeleaves2{
+            /* -webkit-filter: brightness(0.7) contrast(1.2) saturate(0.6);
+            filter: brightness(0.7) contrast(1.2) saturate(0.6); */
+            -webkit-filter: brightness(0.9) contrast(1.2) saturate(0.5);
+            filter: brightness(0.9) contrast(1.2) saturate(0.7);
+        }
+        .treeleaves3{
+            /* -webkit-filter: brightness(0.5) contrast(0.5) saturate(0.8);
+            filter: brightness(0.5) contrast(0.5) saturate(0.8); */
+            -webkit-filter: brightness(0.9) contrast(1.2) saturate(0.5);
+            filter: brightness(0.9) contrast(1.2) saturate(0.7);
+        }
+
+    </style>
+
+</head>
+
+<body>
+    <div class="container centercontainer debugbackground">
+        <div id="mainStage" class="h3d-container centercontainer " style="width: 800px; height: 800px;flex-shrink: 0; position: relative;">
+            <!--FreeCAM: rotateY(-45deg) translateY(300px) translateX(-600px) translateZ(-600px) -->
+            <div class="h3d-object" style="width: 100%;height: 100%; transform: rotateX(-20deg)">
+                
+                <v3d x="120" z="-400" y="40" w="550" h="450" texture="textures/glass_back.png" class="h3d-sprite" style="opacity: 0.6;"></v3d>
+                <v3d x="50" z="-400" y="190" w="700" h="700" texture="textures/glass_back.png" class="h3d-sprite"></v3d>
+                <div id="stageRoot" class="h3d-object" style="width: 100%;height: 100%;">
+                    <v3d y="399" x="200" w="400" h="400" rx="90" texture="textures/settle_top.png" class="h3d-sprite">
+                        <v3d texture="textures/ground_snow.png" z="85" x="-50" y="-50" w="500" h="500" style="border-radius: 999px;"></v3d>
+                    </v3d>
+                    <v3d y="475" x="170" w="460" h="460" rx="90" texture="textures/settle_bottom.png" class="h3d-sprite"></v3d>
+                    <v3d y="596" x="167" z="217" w="466" h="110" rx="17.5" texture="textures/settle_side.png" class="h3d-sprite"></v3d>
+                    <v3d y="596" x="-49" z="0" w="466" h="110" rx="90" rz="90" ry="-72.5" texture="textures/settle_side.png" class="h3d-sprite"></v3d>
+                    <v3d y="596" x="167" z="-217" w="466" h="110" rx="-17.5" rz="0" ry="0" texture="textures/settle_side.png" class="h3d-sprite"></v3d>
+                    <v3d y="596" x="382.5" z="0" w="466" h="110" rx="90" rz="90" ry="252.5" texture="textures/settle_side.png" class="h3d-sprite"></v3d>
+                    <v3d id="insideContainer" y="260" x="150" w="500" h="500" rx="90"> 
+                        <v3d rx="90" z="220" x="70" y="60" h="400" w="50">
+                            <v3d v-for="rneckY in 6" v-bind:key="rneckY" w="50" h="300" y="-110" texture="textures/tree_neck.png" :ry="60*rneckY" rz="180" class="h3d-sprite">
+                                <v3d texture="textures/treeleaves_top.png" x="-14" rx="18" z="15" y="-70" w="90" h="150" class="h3d-sprite treeleaves1"></v3d>
+                                <v3d texture="textures/treeleaves_mid.png" x="-20" rx="28" z="35" y="-5" w="80" h="150" class="h3d-sprite treeleaves2"></v3d>
+                                <v3d texture="textures/treeleaves_mid.png" x="-20" rx="28" z="45" y="50" w="120" h="160" class="h3d-sprite treeleaves2"></v3d>
+                                <!-- <v3d texture="textures/treeleaves_mid.png" x="-14" rx="30" z="45" y="25" w="120" h="150" class="h3d-sprite treeleaves3"></v3d> -->
+                                <v3d v-if="rneckY % 4 == 0 && rneckY <= 4" z="1" x="0" y="-90" texture="textures/tree_star.png" w="50" h="50" class="h3d-sprite"></v3d>
+                            </v3d>
+                            <v3d texture="textures/shadow.png" class="h3d-sprite" rx="90" w="200" h="200" y="-123" x="-70"></v3d>
+                        </v3d>
+
+                        <v3d rx="90" z="220" x="70" y="160" h="400" w="50">
+                            <v3d v-for="rneckY in 6" v-bind:key="rneckY" w="50" h="300" y="-110" texture="textures/tree_neck.png" :ry="60*rneckY" rz="180" class="h3d-sprite">
+                                <v3d texture="textures/treeleaves_top.png" x="-14" rx="18" z="15" y="-70" w="90" h="150" class="h3d-sprite treeleaves1"></v3d>
+                                <v3d texture="textures/treeleaves_mid.png" x="-20" rx="28" z="35" y="-5" w="80" h="150" class="h3d-sprite treeleaves2"></v3d>
+                                <v3d texture="textures/treeleaves_mid.png" x="-20" rx="28" z="45" y="50" w="120" h="160" class="h3d-sprite treeleaves2"></v3d>
+                                <!-- <v3d texture="textures/treeleaves_mid.png" x="-14" rx="30" z="45" y="25" w="120" h="150" class="h3d-sprite treeleaves3"></v3d> -->
+                                <v3d v-if="rneckY % 4 == 0 && rneckY <= 4" z="1" x="0" y="-90" texture="textures/tree_star.png" w="50" h="50" class="h3d-sprite"></v3d>
+                            </v3d>
+                            <v3d texture="textures/shadow.png" class="h3d-sprite" rx="90" w="200" h="200" y="-123" x="-70"></v3d>
+                        </v3d>
+                        
+
+                    </v3d>
+                </div>
+                <v3d y="398.99" x="200" w="400" h="400" rx="90" class="h3d-sprite">
+                    <v3d texture="textures/overlay_snow.png" class="h3d-sprite" z="85" x="-50" y="-50" w="500" h="500" style="border-radius: 999px;"></v3d>
+                </v3d>
+                <v3d x="175" z="500" y="-40" w="450" h="465" texture="textures/glass_front.png" class="h3d-sprite"></v3d>
+                <v3d x="225" z="499" y="335" w="350" h="88" texture="textures/ground_snow_volume.png" class="h3d-sprite"></v3d>
+            </div>
+            <div>
+                
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+
+        var app = new Vue({el:"#mainStage"});
+
+        $(function () {
+            $("#mainStage").fitParent();
+        });
+    </script>
+</body>
+
+</html>

@@ -2,6 +2,7 @@
 # 记录以往的节日特别电话内容以及物品
 # 格式：触发日期&时间|类型(telephone/item/其他（目前只有一个）)|标题|副标题|路径
 
+2024-09-17-20-00|telephone|中秋节来电|在这个特别的日子里，他也在思念你|morningcall/special/midautumn2024/中秋节来电｜同一片月光下.ogg
 2024-02-14-06-30|telephone|情人节来电|送出了巧克力之后，你接到了他的来电…|morningcall/special/valentines2024/情人节来电｜为你奉上美好与爱意.ogg
 2024-02-14-06-00|item|「情人节巧克力」|精心准备的巧克力，希望能够传达跨越时空的爱意。|system/history/img/valentines2024.png
 2024-02-09-20-00|telephone|春节来电|和他相识后度过的第一个新年|morningcall/special/newyear2024/春节来电｜不再孤单的新年夜.ogg
